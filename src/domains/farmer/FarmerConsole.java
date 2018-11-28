@@ -1,0 +1,26 @@
+package domains.farmer;
+
+
+import framework.ui.ProblemConsole;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import static javafx.application.Application.launch;
+
+
+
+public class FarmerConsole extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+        Scene scene = new Scene(new ProblemConsole(new FarmerProblem(), 450, 550));
+        primaryStage.setTitle("Farmer Console");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+}

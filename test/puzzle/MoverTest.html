@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../js/puzzle/PuzzleState.js"></script>
+        <script src="../../js/puzzle/PuzzleMover.js"></script>
+        <script> 
+            function assert(expression) {
+                var result = eval(expression);
+                if (!result) alert("Assertion failed: " + expression);
+            }
+            
+            var mover = new PuzzleMover();
+            
+            var start = new PuzzleState([[2, 8, 3], [1, 6, 4], [7, 0, 5]]);
+            var next = mover.doMove(SLIDE_1, start);
+            assert(next === null);
+            
+            next = mover.doMove(SLIDE_2, start);
+            assert(next === null);
+            
+            next = mover.doMove(SLIDE_3, start);
+            assert(next === null);
+            
+            next = mover.doMove(SLIDE_4, start);
+            assert(next === null);
+            
+            next = mover.doMove(SLIDE_5, start);
+            assert(next.equals(new PuzzleState([[2, 8, 3], [1, 6, 4], [7, 5, 0]])));
+            alert(next.toString());
+            
+            next = mover.doMove(SLIDE_6, start);
+            assert(next.equals(new PuzzleState([[2, 8, 3], [1, 0, 4], [7, 6, 5]])));
+            alert(next.toString());
+            
+            next = mover.doMove(SLIDE_7, start);
+            assert(next.equals(new PuzzleState([[2, 8, 3], [1, 6, 4], [0, 7, 5]])));
+            alert(next.toString());
+            
+            next = mover.doMove(SLIDE_8, start);
+            assert(next === null);
+        </script>
+    </head>
+    <body>
+        <h4>PuzzleMover Test Page</h4>
+    </body>
+</html>

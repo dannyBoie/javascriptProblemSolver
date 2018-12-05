@@ -15,29 +15,29 @@ import java.util.PriorityQueue;
  * @author Danny Bboie
  */
 public class AStarSolver extends StateSpaceSolver {
-    
+
     /**
      * Creates an A* solver.
      * This constructor should set the queue to a priority queue (PQ)
      * and set the statistics header.
-     * @param problem 
+     * @param problem
      */
     public AStarSolver(Problem problem) {
         super(problem, false);
         super.setQueue(new PriorityQueue<>(11,getComparator()));
         super.getStatistics().setHeader("A* Search");
-        
+
     }
-    
+
     /**
      * Adds a vertex to the PQ.
      * @param v the vertex to be added
      */
     @Override
     public void add(Vertex v) {
-       this.getQueue().add(v);
+        this.getQueue().add(v);
     }
-    
+
     /**
      * Creates a comparator object that compares vertices for ordering
      * in a PQ during A* search.
@@ -55,7 +55,7 @@ public class AStarSolver extends StateSpaceSolver {
                 return (temp1>temp2)?1:(temp1<temp2)?-1:0;
             }
         };
-        
+
     }
     public State finalState = this.getProblem().getFinalState();
 }

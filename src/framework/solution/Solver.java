@@ -165,7 +165,7 @@ public abstract class Solver {
     }
     
     private final Problem problem;
-    Queue<Vertex> queue;
+    private Queue<Vertex> queue;
     private Solution solution;
     private final Statistics statistics;
     
